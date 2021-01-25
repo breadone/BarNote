@@ -13,27 +13,48 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: NoteItem.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \NoteItem.timestamp, ascending: true)])
     var fetchedNotes: FetchedResults<NoteItem>
-    let testnotes = ["test1", "test2", "test3", "test4"]
     
     var body: some View {
         VStack {
-            Button(action: {AddNote()}, label: {
-                Image(systemName: "plus")
+            Button(action: {addtestnote()}, label: {
                 Text("Add Note")
             })
             ScrollView {
-//                ForEach(fetchedNotes, id: \.self) { note in
-//                    Text(note.title!)
-//
-//                }
-                ForEach(0 ..< testnotes.count) {
-                    Text(testnotes[$0])
+                ForEach(fetchedNotes, id: \.self) { note in
+                    NoteListView(noteItem: note)
                 }
+                .padding()
             }
         }
         .padding()
     }
     
+    func addtestnote() {
+        let newNote = NoteItem(context: moc)
+        newNote.title = "Title"
+        newNote.body = "Body"
+        
+//        try? moc.save()
+    }
+    
+}
+
+struct NoteListView: View {
+    var noteItem: NoteItem
+    
+    var body: some View {
+        VStack {
+            Text(noteItem.title ?? "")
+                .padding()
+                .font(.title)
+            Text(noteItem.body ?? "")
+                .padding()
+                .font(.body)
+        }
+        .frame(width: 250, height: 100, alignment: .leading)
+        .background(Color.blue)
+        .cornerRadius(17)
+    }
     
 }
 

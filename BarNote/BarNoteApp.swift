@@ -17,6 +17,7 @@ struct BarNoteApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .frame(width: 250)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
@@ -35,6 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.animates = true
         popover.contentViewController = NSViewController()
         popover.contentViewController?.view = NSHostingView(rootView: contentView)
+        popover.contentSize = NSSize(width: 350, height: 350)
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusBarItem?.button?.title = "BN"
         statusBarItem?.button?.action = #selector(AppDelegate.togglePopover(_:))
