@@ -16,27 +16,27 @@ struct BarNoteApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .frame(width: 250)
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            EmptyView()
         }
     }
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate {
+    let persistenceController = PersistenceController.shared
     var popover = NSPopover.init()
     var statusBarItem: NSStatusItem?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         
-        let contentView = ContentView()
+        let contentView = ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+
 
         // Set the SwiftUI's ContentView to the Popover's ContentViewController
 //        popover.behavior = .transient !!! - This does not seem to work in SwiftUI2.0 or macOS BigSur yet
         popover.animates = true
         popover.contentViewController = NSViewController()
         popover.contentViewController?.view = NSHostingView(rootView: contentView)
-        popover.contentSize = NSSize(width: 350, height: 350)
+        popover.contentSize = NSSize(width: 550, height: 350)
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusBarItem?.button?.title = "BN"
         statusBarItem?.button?.action = #selector(AppDelegate.togglePopover(_:))

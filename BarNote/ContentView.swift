@@ -51,6 +51,7 @@ struct NoteListView: View {
                 .padding()
                 .font(.body)
         }
+        .padding()
         .frame(width: 250, height: 100, alignment: .leading)
         .background(Color.blue)
         .cornerRadius(17)
