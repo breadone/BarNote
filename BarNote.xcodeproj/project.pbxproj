@@ -15,6 +15,7 @@
 		4605FB3525BE42CF00544B4E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4605FB3425BE42CF00544B4E /* Persistence.swift */; };
 		4605FB3F25BE444700544B4E /* NoteItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4605FB3D25BE444700544B4E /* NoteItem+CoreDataClass.swift */; };
 		4605FB4025BE444700544B4E /* NoteItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4605FB3E25BE444700544B4E /* NoteItem+CoreDataProperties.swift */; };
+		4657784125BE4D8C00146226 /* AddNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657784025BE4D8C00146226 /* AddNote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		4605FB3425BE42CF00544B4E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4605FB3D25BE444700544B4E /* NoteItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4605FB3E25BE444700544B4E /* NoteItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4657784025BE4D8C00146226 /* AddNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				4605FB1E25BE423F00544B4E /* BarNoteApp.swift */,
 				4605FB2025BE423F00544B4E /* ContentView.swift */,
+				4657784025BE4D8C00146226 /* AddNote.swift */,
 				4605FB2F25BE424E00544B4E /* Data */,
 				4605FB2225BE423F00544B4E /* Assets.xcassets */,
 				4605FB2725BE423F00544B4E /* Info.plist */,
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4657784125BE4D8C00146226 /* AddNote.swift in Sources */,
 				4605FB2125BE423F00544B4E /* ContentView.swift in Sources */,
 				4605FB3525BE42CF00544B4E /* Persistence.swift in Sources */,
 				4605FB4025BE444700544B4E /* NoteItem+CoreDataProperties.swift in Sources */,
