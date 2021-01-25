@@ -11,6 +11,10 @@
 		4605FB2125BE423F00544B4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4605FB2025BE423F00544B4E /* ContentView.swift */; };
 		4605FB2325BE423F00544B4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4605FB2225BE423F00544B4E /* Assets.xcassets */; };
 		4605FB2625BE423F00544B4E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4605FB2525BE423F00544B4E /* Preview Assets.xcassets */; };
+		4605FB3225BE428C00544B4E /* BarNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4605FB3025BE428C00544B4E /* BarNote.xcdatamodeld */; };
+		4605FB3525BE42CF00544B4E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4605FB3425BE42CF00544B4E /* Persistence.swift */; };
+		4605FB3F25BE444700544B4E /* NoteItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4605FB3D25BE444700544B4E /* NoteItem+CoreDataClass.swift */; };
+		4605FB4025BE444700544B4E /* NoteItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4605FB3E25BE444700544B4E /* NoteItem+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		4605FB2525BE423F00544B4E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4605FB2725BE423F00544B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4605FB2825BE423F00544B4E /* BarNote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BarNote.entitlements; sourceTree = "<group>"; };
+		4605FB3125BE428C00544B4E /* BarNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BarNote.xcdatamodel; sourceTree = "<group>"; };
+		4605FB3425BE42CF00544B4E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		4605FB3D25BE444700544B4E /* NoteItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4605FB3E25BE444700544B4E /* NoteItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 			children = (
 				4605FB1E25BE423F00544B4E /* BarNoteApp.swift */,
 				4605FB2025BE423F00544B4E /* ContentView.swift */,
+				4605FB2F25BE424E00544B4E /* Data */,
 				4605FB2225BE423F00544B4E /* Assets.xcassets */,
 				4605FB2725BE423F00544B4E /* Info.plist */,
 				4605FB2825BE423F00544B4E /* BarNote.entitlements */,
@@ -69,6 +78,25 @@
 				4605FB2525BE423F00544B4E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4605FB2F25BE424E00544B4E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4605FB4525BE46DA00544B4E /* NoteItem */,
+				4605FB3025BE428C00544B4E /* BarNote.xcdatamodeld */,
+				4605FB3425BE42CF00544B4E /* Persistence.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4605FB4525BE46DA00544B4E /* NoteItem */ = {
+			isa = PBXGroup;
+			children = (
+				4605FB3D25BE444700544B4E /* NoteItem+CoreDataClass.swift */,
+				4605FB3E25BE444700544B4E /* NoteItem+CoreDataProperties.swift */,
+			);
+			path = NoteItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +169,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4605FB2125BE423F00544B4E /* ContentView.swift in Sources */,
+				4605FB3525BE42CF00544B4E /* Persistence.swift in Sources */,
+				4605FB4025BE444700544B4E /* NoteItem+CoreDataProperties.swift in Sources */,
+				4605FB3225BE428C00544B4E /* BarNote.xcdatamodeld in Sources */,
+				4605FB3F25BE444700544B4E /* NoteItem+CoreDataClass.swift in Sources */,
 				4605FB1F25BE423F00544B4E /* BarNoteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +365,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4605FB3025BE428C00544B4E /* BarNote.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4605FB3125BE428C00544B4E /* BarNote.xcdatamodel */,
+			);
+			currentVersion = 4605FB3125BE428C00544B4E /* BarNote.xcdatamodel */;
+			path = BarNote.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4605FB1325BE423F00544B4E /* Project object */;
 }
