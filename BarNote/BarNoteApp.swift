@@ -28,11 +28,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         
-        let contentView = ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+        let contentView = ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext).frame(width: 350)
 
 
         // Set the SwiftUI's ContentView to the Popover's ContentViewController
-//        popover.behavior = .transient !!! - This does not seem to work in SwiftUI2.0 or macOS BigSur yet
         popover.animates = true
         popover.contentViewController = NSViewController()
         popover.contentViewController?.view = NSHostingView(rootView: contentView)
