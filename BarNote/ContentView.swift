@@ -22,11 +22,11 @@ struct ContentView: View {
         VStack {
             HStack {
                 Button(action: {withAnimation{ addNoteScreen.toggle() }},
-                       label: { Text("Add Note") }
+                       label: { Text("Add Note").foregroundColor(.primary) }
                 )
                 Spacer()
                 Button(action: {NSApplication.shared.terminate(self) },
-                       label: { Text("Quit") }
+                       label: { Text("Quit").foregroundColor(.primary) }
                 )
             }
             if addNoteScreen {
@@ -34,7 +34,7 @@ struct ContentView: View {
                     TextField("Note Title", text: $noteTitle)
                     TextField("More Info", text: $noteBody)
                     Button(action: { addNoteItem() },
-                           label: { Text("Save") }
+                           label: { Text("Save").foregroundColor(.primary) }
                     )
                 }
             }
@@ -71,6 +71,7 @@ struct NoteListView: View {
             VStack(alignment: .leading) {
                 Text(DateToString(noteItem.timestamp ?? Date()))
                     .font(.system(size: 8, weight: .medium))
+                    .foregroundColor(.white)
                 Text(noteItem.title ?? "(no title)")
                     .font(.title2)
                     .foregroundColor(.white)
@@ -84,13 +85,11 @@ struct NoteListView: View {
             Spacer()
             Button(action: {withAnimation{ deleteItem(noteItem) }}, label: {
                 Image(systemName: "trash")
-                    .renderingMode(.original)
                     .foregroundColor(.white)
             })
-            .padding()
         }
         .padding()
-        .frame(width: 250, height: 100, alignment: .leading)
+        .frame(width: 250, height: 85, alignment: .leading)
         .background(Color.blue)
         .cornerRadius(17)
     }

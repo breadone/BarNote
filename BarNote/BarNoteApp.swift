@@ -35,8 +35,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = NSViewController()
         popover.contentViewController?.view = NSHostingView(rootView: contentView)
         popover.contentSize = NSSize(width: 375, height: 350)
+        
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusBarItem?.button?.title = "BN"
+//        statusBarItem?.button?.title = "BN"
+        statusBarItem?.button?.image = NSImage(systemSymbolName: "pencil", accessibilityDescription: "Pencil")
         statusBarItem?.button?.action = #selector(AppDelegate.togglePopover(_:))
     }
     @objc func showPopover(_ sender: AnyObject?) {
