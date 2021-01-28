@@ -20,9 +20,15 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Button(action: {withAnimation{ addNoteScreen.toggle() }},
-                   label: { Text("Add Note") }
-            )
+            HStack {
+                Button(action: {withAnimation{ addNoteScreen.toggle() }},
+                       label: { Text("Add Note") }
+                )
+                Spacer()
+                Button(action: {NSApplication.shared.terminate(self) },
+                       label: { Text("Quit") }
+                )
+            }
             if addNoteScreen {
                 Form() {
                     TextField("Note Title", text: $noteTitle)
@@ -37,12 +43,7 @@ struct ContentView: View {
                     NoteListView(noteItem: note)
                 }
             }
-            HStack {
-                Button(action: {NSApplication.shared.terminate(self) },
-                       label: { Text("Quit") }
-                )
-                Spacer()
-            }
+
         }
         .padding()
     }
@@ -68,6 +69,8 @@ struct NoteListView: View {
     var body: some View {
         HStack() {
             VStack(alignment: .leading) {
+                Text(DateToString(noteItem.timestamp ?? Date()))
+                    .font(.system(size: 8, weight: .medium))
                 Text(noteItem.title ?? "(no title)")
                     .font(.title2)
                     .foregroundColor(.white)
