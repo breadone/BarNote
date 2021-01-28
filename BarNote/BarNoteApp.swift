@@ -28,14 +28,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         
-        let contentView = ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext).frame(width: 350)
-
+        let contentView = ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext).frame(width: 275)
 
         // Set the SwiftUI's ContentView to the Popover's ContentViewController
         popover.animates = true
         popover.contentViewController = NSViewController()
         popover.contentViewController?.view = NSHostingView(rootView: contentView)
-        popover.contentSize = NSSize(width: 550, height: 350)
+        popover.contentSize = NSSize(width: 375, height: 350)
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusBarItem?.button?.title = "BN"
         statusBarItem?.button?.action = #selector(AppDelegate.togglePopover(_:))
