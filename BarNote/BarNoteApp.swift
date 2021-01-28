@@ -28,8 +28,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         
-        let contentView = ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext).frame(width: 275)
-
+        let contentView = {
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .frame(width: 275)
+        }()
+        
         // Set the SwiftUI's ContentView to the Popover's ContentViewController
         popover.animates = true
         popover.contentViewController = NSViewController()
@@ -38,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 //        statusBarItem?.button?.title = "BN"
-        statusBarItem?.button?.image = NSImage(systemSymbolName: "pencil", accessibilityDescription: "Pencil")
+        statusBarItem?.button?.image = NSImage(systemSymbolName: "pencil", accessibilityDescription: "BarNote")
         statusBarItem?.button?.action = #selector(AppDelegate.togglePopover(_:))
     }
     @objc func showPopover(_ sender: AnyObject?) {
