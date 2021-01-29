@@ -69,7 +69,7 @@ struct NoteListView: View {
     var body: some View {
         HStack() {
             VStack(alignment: .leading) {
-                Text(DateToString(noteItem.timestamp ?? Date()))
+                Text(common.DateToString(noteItem.timestamp ?? Date()))
                     .font(.system(size: 8, weight: .medium))
                     .foregroundColor(.white)
                 Text(noteItem.title ?? "(no title)")
@@ -99,12 +99,7 @@ struct NoteListView: View {
         
         try? moc.save()
     }
-    
-    private func DateToString(_ date: Date) -> String {
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "dd/MM, hh:mm"
-        return formatter1.string(from: date)
-    }
+
     
 }
 
