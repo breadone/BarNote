@@ -119,8 +119,9 @@ struct colourView: View {
     
     var body: some View {
         Circle()
+            .strokeBorder(Color.primary,lineWidth: 2.5)
+            .background(Circle().foregroundColor(common.colourDict[colour]))
             .frame(width: 30, height: 30)
-            .foregroundColor(common.colourDict[colour])
     }
 }
 
