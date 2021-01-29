@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var addNoteScreen: Bool = false
     @State private var noteTitle: String = ""
     @State private var noteBody: String = ""
+    @State private var colour: String = "blue"
     
     var body: some View {
         VStack {
@@ -25,16 +26,24 @@ struct ContentView: View {
                        label: { Text("Add Note").foregroundColor(.primary) }
                 )
                 Spacer()
-                Button(action: {NSApplication.shared.terminate(self) },
+                Button(action: { NSApplication.shared.terminate(self) },
                        label: { Text("Quit").foregroundColor(.primary) }
                 )
             }
             if addNoteScreen {
+                HStack() {
+                    ForEach(0 ..< common.colours.count) { c in
+                        colourView(colour: common.colours[c])
+                            .onTapGesture {
+                                colour = common.colours[c]
+                            }
+                    }
+                }
                 Form() {
                     TextField("Note Title", text: $noteTitle)
                     TextField("More Info", text: $noteBody)
                     Button(action: { addNoteItem() },
-                           label: { Text("Save").foregroundColor(.primary) }
+                           label: { Text("Save").foregroundColor(common.colourDict[colour]) }
                     )
                 }
             }
@@ -53,6 +62,7 @@ struct ContentView: View {
         newNote.title = noteTitle
         newNote.body = noteBody
         newNote.timestamp = Date()
+        newNote.colour = colour
         
         try? moc.save()
         noteTitle = ""
@@ -90,7 +100,7 @@ struct NoteListView: View {
         }
         .padding()
         .frame(width: 250, height: 85, alignment: .leading)
-        .background(Color.blue)
+        .background(common.colourDict[noteItem.colour ?? "blue"])
         .cornerRadius(17)
     }
     
@@ -99,8 +109,17 @@ struct NoteListView: View {
         
         try? moc.save()
     }
+}
 
+struct colourView: View {
+    let colour: String
+    static var chosenColour = "blue"
     
+    var body: some View {
+        Circle()
+            .frame(width: 30, height: 30)
+            .foregroundColor(common.colourDict[colour])
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -113,7 +132,8 @@ struct ContentView_Previews: PreviewProvider {
         tNote.timestamp = Date()
         
         return NavigationView {
-            NoteListView(noteItem: tNote)
+//            NoteListView(noteItem: tNote)
+            colourView(colour: "red")
         }
     }
 }
