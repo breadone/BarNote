@@ -50,6 +50,7 @@ struct ContentView: View {
             ScrollView {
                 ForEach(fetchedNotes, id: \.self) { note in
                     NoteListView(noteItem: note)
+                        
                 }
             }
 
@@ -67,6 +68,7 @@ struct ContentView: View {
         try? moc.save()
         noteTitle = ""
         noteBody = ""
+        colour = "blue"
         withAnimation{addNoteScreen.toggle()}
     }
     

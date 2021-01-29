@@ -16,7 +16,8 @@ struct BarNoteApp: App {
 
     var body: some Scene {
         WindowGroup {
-            EmptyView()
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
