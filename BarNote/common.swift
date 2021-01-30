@@ -28,9 +28,9 @@ struct common {
     ]
     
     
-    static func DateToString(_ date: Date) -> String {
+    static func DateToString(_ date: Date, as format: String) -> String {
         let formatter1 = DateFormatter()
-        formatter1.dateFormat = "dd/MM, hh:mm"
+        formatter1.dateFormat = format
         return formatter1.string(from: date)
     }
     

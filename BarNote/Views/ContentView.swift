@@ -62,7 +62,6 @@ struct ContentView: View {
 
         }
         .padding()
-
     }
     
     
@@ -78,47 +77,7 @@ struct ContentView: View {
         noteBody = ""
         colour = "blue"
         withAnimation{addNoteScreen.toggle()}
-    }
-    
-}
-
-struct NoteListView: View {
-    @Environment(\.managedObjectContext) var moc
-    var noteItem: NoteItem
-    
-    var body: some View {
-        HStack() {
-            VStack(alignment: .leading) {
-                Text(common.DateToString(noteItem.timestamp ?? Date()))
-                    .font(.system(size: 8, weight: .medium))
-                    .foregroundColor(.white)
-                Text(noteItem.title ?? "(no title)")
-                    .font(.title2)
-                    .foregroundColor(.white)
-                    .bold()
-                    .lineLimit(1)
-                Text(noteItem.body ?? "(no more info)")
-                    .font(.body)
-                    .lineLimit(2)
-                    .foregroundColor(.white)
-            }
-            Spacer()
-            Button(action: {withAnimation{ deleteItem(noteItem) }}, label: {
-                Image(systemName: "trash")
-                    .foregroundColor(.white)
-            })
-        }
-        .padding()
-        .frame(width: 250, height: 85, alignment: .leading)
-        .background(common.colourDict[noteItem.colour ?? "blue"])
-        .cornerRadius(17)
-    }
-    
-    func deleteItem(_ item: NoteItem) {
-        moc.delete(item)
-        
-        try? moc.save()
-    }
+    }    
 }
 
 struct colourView: View {
@@ -134,17 +93,7 @@ struct colourView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-    
     static var previews: some View {
-        let tNote = NoteItem(context: moc)
-        tNote.title = "title"
-        tNote.body = "body"
-        tNote.timestamp = Date()
-        
-        return NavigationView {
-//            NoteListView(noteItem: tNote)
-            colourView(colour: "red")
-        }
+        ContentView()
     }
 }
