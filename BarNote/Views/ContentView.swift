@@ -18,7 +18,8 @@ struct ContentView: View {
     @State private var noteTitle: String = ""
     @State private var noteBody: String = ""
     @State private var colour: String = "blue"
-    @State private var extendedViewOn: Bool = false
+    
+    @State private var selectedNote: NoteItem? = nil
     
     var body: some View {
         VStack {
@@ -49,17 +50,16 @@ struct ContentView: View {
                 }
             }
             ScrollView {
-                ForEach(fetchedNotes, id: \.self) { note in
-                    NoteListView(noteItem: note)
+                ForEach(fetchedNotes, id: \.self) { noteIn in
+                    NoteListView(noteItem: noteIn)
                         .onTapGesture {
-                            extendedViewOn.toggle()
-                        }
-                        .sheet(isPresented: $extendedViewOn) {
-                            ExpandedView(note: note)
+                            self.selectedNote = noteIn
                         }
                 }
             }
-
+            .sheet(item: self.$selectedNote, content: { noteIn in
+                ExpandedView(note: noteIn)
+            })
         }
         .padding()
     }

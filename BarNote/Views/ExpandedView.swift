@@ -36,5 +36,3 @@ struct ExpandedView: View {
         .background(common.colourDict[note.colour ?? "blue"])
     }
 }
-
-
