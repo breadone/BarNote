@@ -42,8 +42,9 @@ struct ContentView: View {
                     }
                 }
                 Form() {
-                    TextField("Note Title", text: $noteTitle)
-                    TextField("More Info", text: $noteBody)
+                        TextField("", text: $noteTitle)
+                        TextEditor(text: $noteBody)
+                            .lineLimit(10)
                     Button(action: { addNoteItem() },
                            label: { Text("Save").foregroundColor(common.colourDict[colour]) }
                     )
@@ -86,7 +87,7 @@ struct colourView: View {
     
     var body: some View {
         Circle()
-            .strokeBorder(Color.primary,lineWidth: 2.5)
+            .strokeBorder(Color.white,lineWidth: 2.5)
             .background(Circle().foregroundColor(common.colourDict[colour]))
             .frame(width: 30, height: 30)
     }

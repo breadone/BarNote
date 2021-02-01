@@ -15,7 +15,7 @@ struct NoteListView: View {
         HStack() {
             VStack(alignment: .leading) {
                 Text(common.DateToString(noteItem.timestamp ?? Date(), as: "dd/MM, hh:mm"))
-                    .font(.system(size: 8, weight: .medium))
+                    .font(.system(size: 10, weight: .medium))
                     .foregroundColor(.white)
                 Text(noteItem.title ?? "(no title)")
                     .font(.title2)
